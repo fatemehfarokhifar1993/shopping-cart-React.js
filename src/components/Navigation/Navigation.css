@@ -8,7 +8,7 @@ header {
     margin: 0 auto;
     height: var(--header-height); 
     width: 100%;
-    background:var(--header);
+    background:var(--primary-color);
 }
 .mainNavigation {
     display: flex;
@@ -36,10 +36,10 @@ header {
   padding: 0.5rem;
   margin-left:var(--m1);
   height: 100%;
-  color: #d8b4fe;
+  color: var(--secendry-color);
 }
 .nav__link {
-  color: var(--whitecolor);
+  color: var(--white-color);
 }
 
 .nav__link.active,
