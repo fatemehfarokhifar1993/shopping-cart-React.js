@@ -1,14 +1,18 @@
 import Layout from "../Layout/Layout";
 import * as data from "../data.js";
+import { useCartsActions } from "../Providers/CartProvider";
 const HomePage = () => {
-  const addProductHandler = (product) => {};
+  const dispatch = useCartsActions();
+  const addProductHandler = (product) => {
+    dispatch({ type: "ADD-TO-CART", payload: product });
+  };
   return (
     <Layout>
       <main className="bd-container">
         <section className=" productList">
           {data.products.map((product) => {
             return (
-              <div className="product">
+              <div className="product" key={product.id}>
                 <div className="productImg">
                   <img src={product.image} alt={product.name} />
                 </div>
