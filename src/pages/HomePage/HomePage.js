@@ -1,6 +1,7 @@
-import Layout from "../Layout/Layout";
-import * as data from "../data.js";
-import { useCartsActions } from "../Providers/CartProvider";
+import Layout from "../../Layout/Layout";
+import * as data from "../../data.js";
+import { useCartsActions } from "../../Providers/CartProvider";
+import "./HomePage.css"
 const HomePage = () => {
   const dispatch = useCartsActions();
   const addProductHandler = (product) => {

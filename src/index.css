@@ -14,7 +14,7 @@ html {
 }
 body{
   background-color: #faf5ff;
-  width: 100vw;
+ width: 100%;
 
 }
 @media (max-width: 768px) {
