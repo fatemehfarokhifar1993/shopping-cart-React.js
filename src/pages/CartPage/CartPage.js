@@ -1,7 +1,16 @@
 import Layout from "../../Layout/Layout";
-import { useCarts } from "../../Providers/CartProvider";
+import { useCarts, useCartsActions } from "../../Providers/CartProvider";
+import { BiTrash } from "react-icons/bi";
 import "./CartPage.css";
 const CartPage = () => {
+  const dispatch=useCartsActions();
+  const incrementHandler=(cartItem)=>{
+   dispatch({type:"ADD-TO-CART",payload:cartItem})
+  }
+  const decrementHandler=(cartItem)=>{
+    dispatch({type:"Decrement_Product",payload:cartItem})
+  
+  }
   const { cart } = useCarts();
   if (!cart.length)
     return (
@@ -29,9 +38,9 @@ const CartPage = () => {
                     {item.offPrice * item.quantity}
                   </div>
                   <div className="btnGroup">
-                    <button>-</button>
+                    <button  onClick={()=>decrementHandler(item)}> {item.quantity>1?"-": <BiTrash color="red"/>}</button>
                     <button>{item.quantity}</button>
-                    <button>+</button>
+                    <button onClick={()=>incrementHandler(item)}>+</button>
                   </div>
                 </div>
               );
