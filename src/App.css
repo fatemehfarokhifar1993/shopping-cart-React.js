@@ -37,7 +37,7 @@ section{
 .bd-container {
   max-width: 1270px;
   width: calc(100% - 2rem);
-  padding: 0 var(--p1);
+  padding: 0 var(--p2);
   overflow: hidden;
   margin: 0 auto;
 }

@@ -1,7 +1,7 @@
 
 .productList{
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
     grid-gap: 3rem;
     width: 100%;
   }
@@ -14,10 +14,12 @@
     display: flex;
     flex-direction: column;
     border-radius:var(--border-radius);
-    box-shadow: 0 0.5rem 0.5rem rgba(78, 77, 77, 0.3);
+    position: relative;
+    border: solid 1px var(--border-color);
+
   }
   .product:hover{
-    box-shadow: 0 0 11px rgba(33, 33, 33, 0.2);
+    border: solid 3px var(--border-color);
   }
   .productDesc{
     display: flex;
@@ -25,19 +27,48 @@
     justify-content: space-between;
     padding: var(--p1);
   }
+  .productDesc-price-offprice{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--p1);
+  }
+.productDesc-price{
+    text-decoration:line-through ;
+    opacity: 0.3;
+  } 
+  .productDesc-offprice{
+    color: green;
+  }
   .btn{
     border: none;
     outline: none;
     padding:var(--p1) var(--p2);
-    background-color: #fff;
     margin:var(--m1);
-    color: var(--secendry-color);
     border-radius: var(--border-radius);
     cursor: pointer;
-  }
-  .primary{
     background-color: var(--secendry-color);
     color: var(--white-color);
   }
-  
-  
+  .product-discount{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: red;
+    color: #fff;
+    border-radius: 50%;
+position: absolute;
+top: -10px;
+left:-10px;
+border: solid 5px pink;
+  }
+  .none{
+    display: none;
+  }
+  .btn-incart{
+    background-color: green;
+    color: #fff;
+  }

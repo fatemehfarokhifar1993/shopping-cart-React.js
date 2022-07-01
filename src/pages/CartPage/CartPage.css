@@ -15,19 +15,23 @@
 .cartItem {
     border-bottom: 3px solid var(--border-color); 
     display: grid;
-    grid-template-columns: 0.5fr 1fr 1fr 1.5fr ;
+    grid-template-columns:1.5fr 1fr 1fr 1.5fr ;
     grid-gap: 0.5rem;
     align-items: center;
     justify-content: center;
     text-align: center;
     margin-bottom: var(--m2);
     padding:var(--p1);
+    width: 100%;
 }
-.cartItem .itemImg {
-    width: 100px;
-    height: 100px;
+.itemImg {
+height: 100%;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
 }
-.cartItem .itemImg img {
+.itemImg img {
     width: 100%;
     height: auto;
 }
@@ -47,7 +51,20 @@
     border-radius: 5px;
     border: 1px solid var(--border-color);
     width: 35%;
-}
+    }
+    .summeryItem {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+      
+      .summeryItem.net {
+        border-top: 1px solid var(--border-color);
+        padding-top: 3px;
+        color: green;
+      }
 @media screen and ( max-width:700px) {
 .cartCenter{
     width: 100%;
@@ -59,21 +76,31 @@
 }
 .cartItem{
     grid-template-areas:
-    "image price price price"
-    "name btnGroup btnGroup btnGroup"
+    "image image  price price"
+    "name name  btnGroup btnGroup"
     ;
     grid-gap: 0.5rem;
 }
+
 .itemImg img {
     grid-area: image;
 }
 .item-Name {
     grid-area: name;
+
+   
 }
 .item-price {
     grid-area: price; 
+   
+
 }
 .btnGroup{
     grid-area: btnGroup; 
+   
+
 }
+
 } 
+
+  

@@ -1,10 +1,17 @@
 import Layout from "../../Layout/Layout";
 import * as data from "../../data.js";
-import { useCartsActions } from "../../Providers/CartProvider";
-import "./HomePage.css"
+import { useCarts, useCartsActions } from "../../Providers/CartProvider";
+import "./HomePage.css";
+import { toast } from "react-toastify";
+function checkInCart(cart, product) {
+  return cart.find((c) => c.id === product.id);
+}
 const HomePage = () => {
+  const { cart } = useCarts();
+
   const dispatch = useCartsActions();
   const addProductHandler = (product) => {
+    toast.success(`${product.name} added to cart ! `);
     dispatch({ type: "ADD-TO-CART", payload: product });
   };
   return (
@@ -18,15 +25,25 @@ const HomePage = () => {
                   <img src={product.image} alt={product.name} />
                 </div>
                 <div className="productDesc">
-                  <p>{product.name}</p>
-                  <p>${product.price}</p>
+                  <h3 className="productDesc-title">{product.name}</h3>
+                  <div className="productDesc-price-offprice">
+                    <h3 className={`${product.discount && "productDesc-offprice"}`}>
+                      {product.discount ? product.offPrice : product.price} $
+                    </h3>
+                    <h4
+                      className={`${product.discount && "productDesc-price"}`}
+                    >
+                      {product.discount ? product.price :<div style={{visibility:"hidden"}}>0</div>}
+                    </h4>
+                  </div>
                 </div>
                 <button
                   onClick={() => addProductHandler(product)}
-                  className="btn primary"
+                  className={`btn ${checkInCart(cart, product) && "btn-incart"}`}
                 >
-                  Add to Cart
+                  {checkInCart(cart, product) ? "In Cart" : "Add to Cart"}
                 </button>
+                <div className={`${product.discount ?"product-discount":"none"}`}>{product.discount}%</div>
               </div>
             );
           })}
