@@ -2,7 +2,7 @@
   --primary-color: #7e22ce;
   --secendry-color:    #a855f7;
   --border-color:#e9d5ff;
-  --black-color: rgb(56, 52, 52);
+  --disabled-color: rgb(212, 212, 212);
   --white-color: #faf5ff;
   /*  */
   --header-height: 4rem;
@@ -40,4 +40,19 @@ section{
   padding: 0 var(--p2);
   overflow: hidden;
   margin: 0 auto;
+}
+.btn{
+  width: 100%;
+  border: none;
+  outline: none;
+  padding:var(--p1) var(--p2);
+  margin:var(--m1) auto;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  background-color: var(--secendry-color);
+  color: var(--white-color);
+}
+button:disabled{
+  cursor: not-allowed;
+  background-color: var(--disabled-color);
 }

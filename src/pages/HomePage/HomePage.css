@@ -1,4 +1,3 @@
-
 .productList{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
@@ -16,6 +15,7 @@
     border-radius:var(--border-radius);
     position: relative;
     border: solid 1px var(--border-color);
+    padding: var(--p1);
 
   }
   .product:hover{
@@ -40,16 +40,7 @@
   .productDesc-offprice{
     color: green;
   }
-  .btn{
-    border: none;
-    outline: none;
-    padding:var(--p1) var(--p2);
-    margin:var(--m1);
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    background-color: var(--secendry-color);
-    color: var(--white-color);
-  }
+
   .product-discount{
     width: 50px;
     height: 50px;
