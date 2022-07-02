@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../common/input";
 import "./SignupForm.css"
+import {Link} from "react-router-dom"
 const SignupForm = () => {
   const formik = useFormik({
     initialValues: {
@@ -56,8 +57,13 @@ const SignupForm = () => {
         type="password"
       />
       <button type="submit" disabled={!formik.isValid} className="btn">
-        Submit
+      Signup
       </button>
+  <Link to="/login">
+      <p>
+        Alreadey login?
+      </p>
+  </Link>
     </form>
   );
 };

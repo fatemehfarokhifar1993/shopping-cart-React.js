@@ -1,3 +1,4 @@
+import LoginForm from "../../components/Login/LoginForm";
 import Layout from "../../Layout/Layout";
 
 const LoginPage = () => {
@@ -5,7 +6,7 @@ const LoginPage = () => {
     <Layout>
       <main className="bd-container">
         <section>
-          <h3>login page</h3>
+          <LoginForm />
         </section>
       </main>
     </Layout>
