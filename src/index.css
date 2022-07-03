@@ -5,7 +5,6 @@
   box-sizing: border-box;
   text-decoration: none;
   outline: none;
-  text-transform: capitalize;
   line-height: 2;
   list-style: none;
 }

@@ -1,26 +1,32 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../common/input";
 import { useState } from "react";
 import { loginUser } from "../../services/loginService";
+import { useAuthActions } from "../../Providers/AuthProvider";
 const LoginForm = () => {
-  const [error,setError]=useState(null)
+  const setAuth = useAuthActions();
+  const navigate = useNavigate();
+  const [error, setError] = useState(null);
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
     },
-    onSubmit: async(values) => {
-     try {
-      const response=await loginUser(values);
-      console.log(response.data)
-      setError(null)
-     } catch (error) {
-      if (error.response && error.response.data.message) {
-        setError(error.response.data.message);
+    onSubmit: async (values) => {
+      try {
+        const response = await loginUser(values);
+        console.log(response.data);
+        setAuth(response.data);
+        localStorage.setItem("authState", JSON.stringify(response.data));
+        setError(null);
+        navigate("/");
+      } catch (error) {
+        if (error.response && error.response.data.message) {
+          setError(error.response.data.message);
+        }
       }
-     }
     },
     validationSchema: Yup.object({
       email: Yup.string()
@@ -40,7 +46,7 @@ const LoginForm = () => {
       <button type="submit" disabled={!formik.isValid} className="btn">
         login
       </button>
-      {error && <p style={{color:"red"}}>error is :{error}</p>}
+      {error && <p style={{ color: "red" }}>error is :{error}</p>}
       <Link to="/signup">
         <p>Not singup yet?</p>
       </Link>

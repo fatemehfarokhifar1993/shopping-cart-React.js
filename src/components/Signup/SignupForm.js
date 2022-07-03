@@ -1,11 +1,14 @@
+import { signupUser } from "../../services/sinupService";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../common/input";
 import "./SignupForm.css";
-import { Link } from "react-router-dom";
-import { signupUser } from "../../services/sinupService";
-import { useState } from "react";
+import { useAuthActions } from "../../Providers/AuthProvider";
 const SignupForm = () => {
+  const setAuth = useAuthActions();
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const formik = useFormik({
     initialValues: {
@@ -26,10 +29,14 @@ const SignupForm = () => {
       try {
         const response = await signupUser(userData);
         console.log(response.data);
+        setAuth(response.data);
+        localStorage.setItem("authState", JSON.stringify(response.data));
+        setError(null);
+        navigate("/")
       } catch (error) {
         if (error.response && error.response.data.message) {
           setError(error.response.data.message);
-          console.log(error.response.data.message);
+         // console.log(error.response.data.message);
         }
       }
     },
