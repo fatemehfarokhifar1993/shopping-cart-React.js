@@ -1,9 +1,12 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../common/input";
-import "./SignupForm.css"
-import {Link} from "react-router-dom"
+import "./SignupForm.css";
+import { Link } from "react-router-dom";
+import { signupUser } from "../../services/sinupService";
+import { useState } from "react";
 const SignupForm = () => {
+  const [error, setError] = useState(null);
   const formik = useFormik({
     initialValues: {
       name: "",
@@ -12,8 +15,23 @@ const SignupForm = () => {
       password: "",
       passwordConfirm: "",
     },
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      const { name, email, phoneNumber, password } = values;
+      const userData = {
+        name,
+        email,
+        phoneNumber,
+        password,
+      };
+      try {
+        const response = await signupUser(userData);
+        console.log(response.data);
+      } catch (error) {
+        if (error.response && error.response.data.message) {
+          setError(error.response.data.message);
+          console.log(error.response.data.message);
+        }
+      }
     },
     validationSchema: Yup.object({
       name: Yup.string()
@@ -26,13 +44,11 @@ const SignupForm = () => {
         .required("Phone number is required")
         .matches(/^[0-9]{11}$/, "Invalid phone number")
         .nullable(),
-      password: Yup.string()
-        .required(" Password is required")
-        .matches(
+      password: Yup.string().required(" Password is required"),
+      /*  .matches(
           /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
           "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
-        ),
-      passwordConfirm: Yup.string()
+        ) */ passwordConfirm: Yup.string()
         .required("Password confirmation is required")
         .oneOf([Yup.ref("password"), null], "Password must maych"),
     }),
@@ -57,13 +73,12 @@ const SignupForm = () => {
         type="password"
       />
       <button type="submit" disabled={!formik.isValid} className="btn">
-      Signup
+        Signup
       </button>
-  <Link to="/login">
-      <p>
-        Alreadey login?
-      </p>
-  </Link>
+      {error && <p style={{color:"red"}}>error is :{error}</p>}
+      <Link to="/login">
+        <p>Alreadey login?</p>
+      </Link>
     </form>
   );
 };

@@ -22,7 +22,7 @@ const CartPage = () => {
       <Layout>
         <main className="bd-container">
           <section>
-            <p>cart id empty!</p>
+            <p>cart is empty</p>
           </section>
         </main>
       </Layout>
