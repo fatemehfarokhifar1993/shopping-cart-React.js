@@ -1,3 +1,4 @@
+import React from "react";
 import Layout from "../../Layout/Layout";
 import { useAuth } from "../../Providers/AuthProvider";
 import "./ProfilePage.css";

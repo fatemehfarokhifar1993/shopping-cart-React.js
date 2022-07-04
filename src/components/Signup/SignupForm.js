@@ -30,7 +30,6 @@ const SignupForm = () => {
         const response = await signupUser(userData);
         console.log(response.data);
         setAuth(response.data);
-        localStorage.setItem("authState", JSON.stringify(response.data));
         setError(null);
         navigate("/")
       } catch (error) {

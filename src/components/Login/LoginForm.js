@@ -19,7 +19,6 @@ const LoginForm = () => {
         const response = await loginUser(values);
         console.log(response.data);
         setAuth(response.data);
-        localStorage.setItem("authState", JSON.stringify(response.data));
         setError(null);
         navigate("/");
       } catch (error) {
