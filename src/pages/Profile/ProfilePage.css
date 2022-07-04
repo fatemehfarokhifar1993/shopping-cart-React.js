@@ -7,8 +7,6 @@
     background-color: var( --secendry-color);
   border-radius: var( --border-radius);
     padding: var(--p1);
-    width: 40%;
-
 }
 .profile-page h3{
     width: 100%;

@@ -1,15 +1,15 @@
 import Layout from "../../Layout/Layout";
 import * as data from "../../data.js";
-import { useCarts, useCartsActions } from "../../Providers/CartProvider";
+import { useCart, useCartActions } from "../../Providers/CartProvider";
 import "./HomePage.css";
 import { toast } from "react-toastify";
 function checkInCart(cart, product) {
   return cart.find((c) => c.id === product.id);
 }
 const HomePage = () => {
-  const { cart } = useCarts();
+  const { cart } = useCart();
 
-  const dispatch = useCartsActions();
+  const dispatch = useCartActions();
   const addProductHandler = (product) => {
     toast.success(`${product.name} added to cart ! `);
     dispatch({ type: "ADD-TO-CART", payload: product });

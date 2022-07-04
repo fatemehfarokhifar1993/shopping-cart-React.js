@@ -7,7 +7,7 @@
 .cartItemList {
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color:var(--white-color);
     border-radius: var(--border-radius);
     border: 1px solid var(--border-color);
     width: 60%;

@@ -1,11 +1,11 @@
 import Layout from "../../Layout/Layout";
-import { useCarts, useCartsActions } from "../../Providers/CartProvider";
+import { useCart, useCartActions } from "../../Providers/CartProvider";
 import { BiTrash } from "react-icons/bi";
 import "./CartPage.css";
 import { Link } from "react-router-dom";
 const CartPage = () => {
-  const { cart, total } = useCarts();
-  const dispatch = useCartsActions();
+  const { cart, total } = useCart();
+  const dispatch = useCartActions();
   const incrementHandler = (cartItem) => {
     dispatch({ type: "ADD-TO-CART", payload: cartItem });
   };
