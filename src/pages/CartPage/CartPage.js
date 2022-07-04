@@ -41,11 +41,11 @@ const CartPage = () => {
                   <div className="item-Name">{item.name}</div>
                   <div className="item-price">
                     {item.offPrice * item.quantity} $
-                  <div className="cartItem__off">
-                    <div>
-                      {(item.price - item.offPrice) * item.quantity} $ off
+                    <div className="cartItem__off">
+                      <div>
+                        {(item.price - item.offPrice) * item.quantity} $ off
+                      </div>
                     </div>
-                  </div>
                   </div>
                   <div className="btnGroup">
                     <button onClick={() => decrementHandler(item)}>
@@ -72,8 +72,8 @@ const CartPage = () => {
               <p>net price </p>
               <p> {total} $</p>
             </div>
-            <Link to="/checkout">
-            <button className="btn">Go to checkout</button>
+            <Link to="/signup?redirect=checkout">
+              <button className="btn">Go to checkout</button>
             </Link>
           </section>
         </section>

@@ -5,7 +5,7 @@ const CheckoutPage = () => {
     <Layout>
       <main className="bd-container">
         <section>
-          <div>hi</div>
+          <div>Checkout Page</div>
         </section>
       </main>
     </Layout>

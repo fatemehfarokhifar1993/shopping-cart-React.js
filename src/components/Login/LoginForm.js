@@ -2,13 +2,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "../../common/input";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { loginUser } from "../../services/loginService";
-import { useAuthActions } from "../../Providers/AuthProvider";
+import { useAuth, useAuthActions } from "../../Providers/AuthProvider";
+import { useQuery } from "../../hooks/useQuery";
 const LoginForm = () => {
   const setAuth = useAuthActions();
   const navigate = useNavigate();
+  const query=useQuery();
+  const redirect=query.get("redirect") || "/";
   const [error, setError] = useState(null);
+  const auth=useAuth()
+  useEffect(()=>{
+    if(auth)  navigate(`/${redirect}`);
+      },[redirect,auth])
+      
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -17,10 +25,11 @@ const LoginForm = () => {
     onSubmit: async (values) => {
       try {
         const response = await loginUser(values);
-        console.log(response.data);
+       // console.log(response.data);
         setAuth(response.data);
         setError(null);
-        navigate("/");
+        console.log(redirect)
+        navigate(`/${redirect}`);
       } catch (error) {
         if (error.response && error.response.data.message) {
           setError(error.response.data.message);
@@ -46,7 +55,7 @@ const LoginForm = () => {
         login
       </button>
       {error && <p style={{ color: "red" }}>error is :{error}</p>}
-      <Link to="/signup">
+      <Link to={`/signup?redirect=${redirect}`}>
         <p>Not singup yet?</p>
       </Link>
     </form>
