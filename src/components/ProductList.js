@@ -17,7 +17,7 @@ const ProductList = () => {
   return (
     <Layout>
     <main className="container mx-auto ">
-      <section className=" flex flex-wrap p-6 items-center justify-between">
+      <section className=" flex flex-wrap p-6 items-center justify-between ">
         {products.map((product) => {
           return (
             <div
