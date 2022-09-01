@@ -1,4 +1,4 @@
-import {BiMenu,BiX,BiShoppingBag} from "react-icons/bi";
+import { BiMenu, BiX, BiShoppingBag } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../Providers/AuthProvider";
 import { useCart } from "../../Providers/CartProvider";
@@ -15,8 +15,8 @@ const Navigation = () => {
     { name: "CONTACT", link: "/" },
   ];
   return (
-    <header className="container mx-auto fixed top-0 left-0 right-0 bg-white">
-      <nav className="Z-30 md:flex items-center justify-between bg-white py-4 md:px-10 px-7 text-2xl md:text-xl">
+    <header className=" container mx-auto fixed top-0 left-0 right-0 bg-white opacity-100">
+      <nav className="Z-30 md:flex items-center justify-between  py-4 md:px-10 px-7 text-2xl md:text-xl">
         <div className=" flex items-center text-gray-800">
           <NavLink
             to="/cart"
@@ -28,15 +28,16 @@ const Navigation = () => {
             </span>
           </NavLink>
 
-          <NavLink to="/" className="mr-5 hover:text-gray-400">home</NavLink>
+          <NavLink to="/" className="mr-5 hover:text-gray-400">
+            home
+          </NavLink>
 
-              <NavLink
-                to={userData ? "/profile" : "/login"}
-                className="hover:text-gray-400"
-              >
-                {userData ? "profile" : "login / signup"}
-              </NavLink>
-          
+          <NavLink
+            to={userData ? "/profile" : "/login"}
+            className="hover:text-gray-400"
+          >
+            {userData ? "profile" : "login / signup"}
+          </NavLink>
         </div>
         <div
           className="text-3xl absolute right-8 top-6 cursor-pointer md:hidden"
@@ -63,9 +64,6 @@ const Navigation = () => {
             </li>
           ))}
         </ul>
-
-
-          
       </nav>
     </header>
   );

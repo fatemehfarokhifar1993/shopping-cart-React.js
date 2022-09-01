@@ -22,23 +22,19 @@ const brands = [
 ];
 const Brands = () => {
   return (
-    <div className="container mx-auto ">
-      <div className="flex flex-wrap -mx-4 p-10 ">
+    <div className=" container mx-auto">
+      <div className=" flex flex-wrap p-6">
         {brands.map((brand) => {
           return (
             <div
-              className="w-1/2 sm:w-1/3 md:w-1/3 xl:w-1/5 p-4"
               key={brand.id}
+              className="flex flex-col justify-center items-center w-1/2 sm:w-1/3 md:w-1/3 xl:w-1/5 p-4 mx-auto "
             >
-              <div className="block bg-white  overflow-hidden">
-                <div className="relative pb-48 md:pb-36 sm:pb-32 overflow-hidden">
-                  <img
-                    src={`${brand.image}`}
-                    className="absolute inset-0 h-full w-full object-fill opacity-30"
-                    alt=""
-                  />
-                </div>
-              </div>
+              <img
+                src={`${brand.image}`}
+                className="h-48 w-full object-fit"
+                alt=""
+              />
             </div>
           );
         })}
