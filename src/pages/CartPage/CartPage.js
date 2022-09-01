@@ -74,7 +74,6 @@ const CartPage = () => {
                     <p className="text-base leading-3 text-gray-600  py-4">
                       off: ${(item.price - item.offPrice) * item.quantity}
                     </p>
-
                     <div className="flex items-center justify-between pt-5">
                       <div className="flex itemms-center"></div>
                       <p className="text-base font-black leading-none text-gray-800 ">
