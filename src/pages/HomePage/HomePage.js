@@ -1,4 +1,4 @@
-
+import Blogs from "../../components/Blogs";
 import Brands from "../../components/Brands";
 import Carousel from "../../components/Carousel";
 import Offers from "../../components/Offers";
@@ -8,10 +8,11 @@ import Layout from "../../Layout/Layout";
 const HomePage = () => {
   return (
     <Layout>
-      <Carousel/>
-      <Offers/>
-     <ProductList/>
-     <Brands/>
+      <Carousel />
+      <Offers />
+      <ProductList />
+      <Blogs />
+      <Brands />
     </Layout>
   );
 };

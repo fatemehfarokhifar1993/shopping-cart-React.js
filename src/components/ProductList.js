@@ -22,7 +22,7 @@ const ProductList = () => {
             return (
               <div
                 key={product.id}
-                className="flex flex-col justify-center items-center sm:w-1/3 md:w-1/3 xl:w-1/4 p-4 my-8 mx-auto w-full"
+                className=" flex flex-col justify-center items-center sm:w-1/3 md:w-1/3 xl:w-1/4 p-4 my-8 mx-auto w-full"
               >
                 <img
                   src={`${product.image}`}
