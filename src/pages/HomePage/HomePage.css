@@ -1,4 +1,4 @@
-.productList{
+/* .productList{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
     grid-gap: 3rem;
@@ -62,4 +62,4 @@ border: solid 5px pink;
   .btn-incart{
     background-color: green;
     color: #fff;
-  }
+  } */

@@ -9,14 +9,14 @@ import { useQuery } from "../../hooks/useQuery";
 const LoginForm = () => {
   const setAuth = useAuthActions();
   const navigate = useNavigate();
-  const query=useQuery();
-  const redirect=query.get("redirect") || "/";
+  const query = useQuery();
+  const redirect = query.get("redirect") || "/";
   const [error, setError] = useState(null);
-  const auth=useAuth()
-  useEffect(()=>{
-    if(auth)  navigate(`/${redirect}`);
-      },[redirect,auth])
-      
+  const auth = useAuth();
+  useEffect(() => {
+    if (auth) navigate(`/${redirect}`);
+  }, [redirect, auth]);
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,10 +25,10 @@ const LoginForm = () => {
     onSubmit: async (values) => {
       try {
         const response = await loginUser(values);
-       // console.log(response.data);
+        // console.log(response.data);
         setAuth(response.data);
         setError(null);
-        console.log(redirect)
+        console.log(redirect);
         navigate(`/${redirect}`);
       } catch (error) {
         if (error.response && error.response.data.message) {

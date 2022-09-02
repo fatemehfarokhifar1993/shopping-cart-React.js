@@ -19,7 +19,8 @@ input[type="text"],input[type="tel"],input[type="email"],input[type="password"],
     display: block;
     background-color:var(--white-color);
     border-radius:var(--border-radius); 
-    border: none;
+    border: 1px solid var(--border-color);
+
 }
 input:focus{
     outline: none;

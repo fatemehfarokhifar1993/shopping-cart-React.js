@@ -15,10 +15,6 @@ const HomePage = () => {
       <Blogs />
       <Brands />
       <ScrollImages />
-      <br />
-      <br /> <br />
-      <br /> <br />
-      <br />
     </Layout>
   );
 };
