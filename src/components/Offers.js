@@ -31,7 +31,7 @@ const Offers = () => {
                   <h5 className="text-white text-2xl leading-tight font-bold mb-2">
                     {product.title}
                   </h5>
-                  <p className="text-white text-medium mb-4 text-lg">
+                  <p className="text-gray-800 text-medium mb-4 text-lg">
                     {product.desc}
                   </p>
                   <button

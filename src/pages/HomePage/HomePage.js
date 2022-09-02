@@ -3,6 +3,7 @@ import Brands from "../../components/Brands";
 import Carousel from "../../components/Carousel";
 import Offers from "../../components/Offers";
 import ProductList from "../../components/ProductList";
+import ScrollImages from "../../components/ScrollImages";
 import Layout from "../../Layout/Layout";
 
 const HomePage = () => {
@@ -13,6 +14,11 @@ const HomePage = () => {
       <ProductList />
       <Blogs />
       <Brands />
+      <ScrollImages />
+      <br />
+      <br /> <br />
+      <br /> <br />
+      <br />
     </Layout>
   );
 };
