@@ -63,14 +63,14 @@ const Carousel = () => {
         ref={slideRef}
         className="w-full select-none mx-auto h-[32rem] flex flex-col  p-6 "
       >
-        <div className="w-full h-full  mx-auto">
+        <div className="w-full h-full mx-auto">
           <div
-            className="h-full flex flex-col items-left justify-between bg-white shadow-lg hover:shadow-xl rounded overflow-hidden   bg-cover bg-center"
+            className="p-2 h-full flex flex-col items-left justify-between bg-white shadow-lg hover:shadow-xl rounded overflow-hidden bg-cover bg-center"
             style={{
               backgroundImage: `url(${featuredImages[currentIndex].image})`,
             }}
           >
-            <div className="backdrop-blur-md bg-white/30 h-3/4 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-10 flex flex-col items-center justify-between m-10 ">
+            <div className="backdrop-brightness-90 bg-white/30 h-3/4 p-4 sm:p-6 md:p-8 lg:p-10 xl:p-10 flex flex-col items-center justify-between m-8 ">
               <h5 className="text-amber-400 text-2xl leading-tight font-bold">
                 {featuredImages[currentIndex].title}
               </h5>

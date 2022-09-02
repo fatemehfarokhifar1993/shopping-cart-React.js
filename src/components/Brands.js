@@ -32,7 +32,7 @@ const Brands = () => {
             >
               <img
                 src={`${brand.image}`}
-                className="h-48 w-full object-fit"
+                className="h-48 w-full object-fit "
                 alt=""
               />
             </div>

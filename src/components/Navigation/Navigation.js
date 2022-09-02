@@ -16,7 +16,7 @@ const Navigation = () => {
   ];
   return (
     <header className=" container mx-auto fixed top-0 left-0 right-0 bg-white opacity-100">
-      <nav className="Z-30 md:flex items-center justify-between  py-4 md:px-10 px-7 text-2xl md:text-xl">
+      <nav className="Z-30 md:flex items-center justify-between  py-4 md:px-10 px-7 text-2xl md:text-xl shadow">
         <div className=" flex items-center text-gray-800">
           <NavLink
             to="/cart"
